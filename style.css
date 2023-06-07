@@ -1,0 +1,175 @@
+:root {
+    /* you can get your favorite color from online color picker */
+    --primary: #e77e23;
+    --secondary: #e77f239c;
+    --gray: #808080;
+    --success: #4BB543;
+
+    --step-gutter: 1rem;
+    --step-content-width: 10rem;
+    --step-content-padding-top: 0.5rem;
+    --step-circle-size: 3rem;
+    --step-circle-border-width: 1px;
+
+    --step-default-circle-color: var(--gray);
+    --step-default-circle-bg-color: transparent;
+    --step-default-circle-border-color: var(--gray);
+    --step-default-text-color: var(--gray);
+
+    --step-success-circle-color: var(--success);
+    --step-success-circle-bg-color: transparent;
+    --step-success-circle-border-color: var(--success);
+    --step-success-text-color: var(--success);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+.container {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    /* Resetting default button styles */
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* increase button specificity with more selectors */
+.button-container button {
+    background-color: var(--primary);
+    border-radius: 5px;
+    padding: 0.5rem 3rem;
+    color: white;
+}
+
+.button-container button:hover {
+    background-color: var(--secondary);
+}
+
+.button-container button:disabled {
+    background-color: var(--gray);
+    cursor: auto;
+}
+
+/* remove default ul style */
+.steps {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    overflow-x: auto;
+}
+
+.step-content {
+    /* to have default behavior of box-sizing */
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--step-content-width);
+    min-width: var(--step-content-width);
+    max-width: var(--step-content-width);
+    padding-top: var(--step-content-padding-top);
+    padding-right: var(--step-gutter);
+}
+
+.step-circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--step-circle-size);
+    height: var(--step-circle-size);
+    color: var(--step-default-circle-color);
+    border: var(--step-circle-border-width) solid var(--step-default-circle-border-color);
+    border-radius: 100%;
+    background-color: var(--step-default-circle-bg-color);
+}
+
+/* add line before steps */
+.step-circle::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: calc(var(--step-circle-border-width) - 1px);
+    width: calc(var(--step-content-width) + var(--step-gutter) - var(--step-circle-size));
+    height: var(--step-circle-border-width);
+    transform: translate(-100%, -50%);
+    color: var(--step-default-circle-border-color);
+    background-color: currentColor;
+}
+
+.step:first-child {
+    margin-left: auto;
+}
+
+.step:last-child {
+    margin-right: auto;
+}
+
+/* this is for hiding line before first step */
+.step:first-of-type .step-circle::before {
+    display: none;
+}
+
+.step:last-of-type .step-content {
+    padding-right: 0;
+}
+
+.step-text {
+    color: var(--step-default-text-color);
+    word-break: break-all;
+    margin-top: 0.25rem;
+}
+
+.step-success .step-circle {
+    color: var(--step-success-circle-color);
+    background-color: var(--step-success-circle-bg-color);
+    border-color: var(--step-success-circle-border-color);
+}
+
+.step-success .step-circle::before {
+    color: var(--step-success-circle-border-color);
+}
+
+.step-success .step-text {
+    color: var(--step-success-text-color);
+}

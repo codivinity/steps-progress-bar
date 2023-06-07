@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- get your favorite google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- add your own kit from fontawesome -->
+    <script src="https://kit.fontawesome.com/1a4dd4a998.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>steps-progress-bar</title>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <h1>AWESOME WIZARD</h1>
+
+            <h2>split a complicated flow into mutiple steps</h2>
+
+            <ul class="steps">
+                <li class="step">
+                    <div class="step-content">
+                        <!-- step icon -->
+                        <span class="step-circle">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <!-- step text -->
+                        <span class="step-text">Personal details</span>
+                    </div>
+                </li>
+                <li class="step">
+                    <div class="step-content">
+                        <!-- step icon -->
+                        <span class="step-circle">
+                            <i class="fas fa-cog"></i>
+                        </span>
+                        <!-- step text -->
+                        <span class="step-text">Additional details</span>
+                    </div>
+                </li>
+                <li class="step">
+                    <div class="step-content">
+                        <!-- step icon -->
+                        <span class="step-circle">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <!-- step text -->
+                        <span class="step-text">Last step</span>
+                    </div>
+                </li>
+            </ul>
+
+        </main>
+
+        <div class="button-container">
+            <button class="prev-button"> Back </button>
+            <button class="next-button">Next</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
